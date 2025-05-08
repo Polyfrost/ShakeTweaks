@@ -9,8 +9,8 @@ import dev.isxander.yacl3.config.v2.api.ConfigClassHandler;
 import dev.isxander.yacl3.config.v2.api.SerialEntry;
 import dev.isxander.yacl3.config.v2.api.serializer.GsonConfigSerializerBuilder;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.Text;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 
 public class ShakeTweaksConfig {
     public static final ConfigClassHandler<ShakeTweaksConfig> CONFIG = ConfigClassHandler.createBuilder(ShakeTweaksConfig.class)
@@ -21,42 +21,49 @@ public class ShakeTweaksConfig {
 
     @SerialEntry public boolean disableScreenBobbing = true;
     @SerialEntry public boolean disableHandBobbing = false;
+    @SerialEntry public boolean disableHorizontalBobbing = false;
     @SerialEntry public boolean disableMapBobbing = true;
     @SerialEntry public boolean disableHandDamage = false;
     @SerialEntry public boolean disableScreenDamage = false;
 
     public static Screen configScreen(Screen parent) {
         return YetAnotherConfigLib.create(CONFIG, ((defaults, config, builder) -> builder
-                .title(Text.translatable("shake-tweaks.shake-tweaks"))
+                .title(Component.translatable("shake-tweaks.shake-tweaks"))
                 .category(ConfigCategory.createBuilder()
-                        .name(Text.translatable("shake-tweaks.shake-tweaks"))
+                        .name(Component.translatable("shake-tweaks.shake-tweaks"))
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("shake-tweaks.disable-screen-bobbing"))
-                                .description(OptionDescription.of(Text.translatable("shake-tweaks.disable-screen-bobbing.description")))
+                                .name(Component.translatable("shake-tweaks.disable-screen-bobbing"))
+                                .description(OptionDescription.of(Component.translatable("shake-tweaks.disable-screen-bobbing.description")))
                                 .binding(defaults.disableScreenBobbing, () -> config.disableScreenBobbing, newVal -> config.disableScreenBobbing = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("shake-tweaks.disable-hand-bobbing"))
-                                .description(OptionDescription.of(Text.translatable("shake-tweaks.disable-hand-bobbing.description")))
+                                .name(Component.translatable("shake-tweaks.disable-hand-bobbing"))
+                                .description(OptionDescription.of(Component.translatable("shake-tweaks.disable-hand-bobbing.description")))
                                 .binding(defaults.disableHandBobbing, () -> config.disableHandBobbing, newVal -> config.disableHandBobbing = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("shake-tweaks.disable-map-bobbing"))
-                                .description(OptionDescription.of(Text.translatable("shake-tweaks.disable-map-bobbing.description")))
+                                .name(Component.translatable("shake-tweaks.disable-horizontal-bobbing"))
+                                .description(OptionDescription.of(Component.translatable("shake-tweaks.disable-horizontal-bobbing.description")))
+                                .binding(defaults.disableHorizontalBobbing, () -> config.disableHorizontalBobbing, newVal -> config.disableHorizontalBobbing = newVal)
+                                .controller(TickBoxControllerBuilder::create)
+                                .build())
+                        .option(Option.<Boolean>createBuilder()
+                                .name(Component.translatable("shake-tweaks.disable-map-bobbing"))
+                                .description(OptionDescription.of(Component.translatable("shake-tweaks.disable-map-bobbing.description")))
                                 .binding(defaults.disableMapBobbing, () -> config.disableMapBobbing, newVal -> config.disableMapBobbing = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("shake-tweaks.disable-screen-damage-tilt"))
-                                .description(OptionDescription.of(Text.translatable("shake-tweaks.disable-screen-damage-tilt.description")))
+                                .name(Component.translatable("shake-tweaks.disable-screen-damage-tilt"))
+                                .description(OptionDescription.of(Component.translatable("shake-tweaks.disable-screen-damage-tilt.description")))
                                 .binding(defaults.disableScreenDamage, () -> config.disableScreenDamage, newVal -> config.disableScreenDamage = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())
                         .option(Option.<Boolean>createBuilder()
-                                .name(Text.translatable("shake-tweaks.disable-hand-damage-tilt"))
-                                .description(OptionDescription.of(Text.translatable("shake-tweaks.disable-hand-damage-tilt.description")))
+                                .name(Component.translatable("shake-tweaks.disable-hand-damage-tilt"))
+                                .description(OptionDescription.of(Component.translatable("shake-tweaks.disable-hand-damage-tilt.description")))
                                 .binding(defaults.disableHandDamage, () -> config.disableHandDamage, newVal -> config.disableHandDamage = newVal)
                                 .controller(TickBoxControllerBuilder::create)
                                 .build())

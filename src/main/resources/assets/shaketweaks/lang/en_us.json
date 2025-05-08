@@ -4,6 +4,8 @@
   "shake-tweaks.disable-screen-bobbing.description": "Disables the screen shake when moving.",
   "shake-tweaks.disable-hand-bobbing": "Disable Hand Bobbing",
   "shake-tweaks.disable-hand-bobbing.description": "Disables the hand shake when moving.",
+  "shake-tweaks.disable-horizontal-bobbing": "Disable Horizontal Bobbing",
+  "shake-tweaks.disable-horizontal-bobbing.description": "Disables horizontal bobbing for both the screen and hand.",
   "shake-tweaks.disable-map-bobbing": "Disable Map Bobbing",
   "shake-tweaks.disable-map-bobbing.description": "Disables the hand shake when holding a map. Does nothing if \"Disable Hand Bobbing\" is turned on.",
   "shake-tweaks.disable-screen-damage-tilt": "Disable Screen Damage Tilt",

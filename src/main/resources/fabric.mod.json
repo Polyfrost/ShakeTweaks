@@ -1,19 +1,21 @@
 {
 	"schemaVersion": 1,
-	"id": "shaketweaks",
+	"id": "${id}",
 	"version": "${version}",
-	"name": "Shake Tweaks",
-	"description": "Small tweaks to the shake effect of the screen and hand!",
+	"name": "${name}",
+	"description": "${description}",
 	"authors": [
 		"Microcontrollers"
 	],
+	"contributors": [
+	],
 	"contact": {
-		"homepage": "https://github.com/MicrocontrollersDev",
-		"sources": "https://github.com/MicrocontrollersDev/ShakeTweaks",
-		"issues": "https://github.com/MicrocontrollersDev/ShakeTweaks/issues"
+		"homepage": "${modrinth}",
+		"sources": "${source}",
+		"issues": "${issues}"
 	},
-	"license": "LGPLV3",
-	"icon": "assets/shaketweaks/icon.png",
+	"license": "${license}",
+	"icon": "assets/${id}/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
@@ -24,11 +26,11 @@
 		]
 	},
 	"mixins": [
-		"shaketweaks.mixins.json"
+		"${id}.mixins.json"
 	],
 	"depends": {
-		"fabricloader": ">=0.15",
-		"minecraft": ">=1.20",
+		"fabricloader": ">=0.16.10",
+		"minecraft": "${mcdep}",
 		"java": ">=17",
 		"fabric-api": "*",
 		"yet_another_config_lib_v3": "*"
@@ -36,7 +38,10 @@
 	"custom": {
 		"modmenu": {
 			"links": {
-				"modmenu.discord": "https://discord.gg/rejfv9kFJj"
+				"modmenu.kofi": "${kofi}",
+				"modmenu.discord": "${discord}",
+				"modmenu.modrinth": "${modrinth}",
+				"modmenu.curseforge": "${curseforge}"
 			},
 			"update_checker": true
 		}
