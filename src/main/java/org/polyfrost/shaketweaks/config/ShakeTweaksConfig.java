@@ -7,6 +7,8 @@ import org.polyfrost.oneconfig.api.config.v1.annotations.Switch;
 public class ShakeTweaksConfig extends Config {
     public ShakeTweaksConfig() {
         super(ShakeTweaks.ID + ".json", ShakeTweaks.NAME, Category.QOL);
+
+        loadFrom("patcher.toml");
     }
 
     @Switch(
