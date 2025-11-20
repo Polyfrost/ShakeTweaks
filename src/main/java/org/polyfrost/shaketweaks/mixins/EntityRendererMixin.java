@@ -2,7 +2,6 @@ package org.polyfrost.shaketweaks.mixins;
 
 
 import dev.deftu.omnicore.api.client.OmniClient;
-import dev.deftu.omnicore.api.client.player.OmniClientPlayer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.EntityRenderer;
