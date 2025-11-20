@@ -1,7 +1,10 @@
 package org.polyfrost.shaketweaks.mixins;
 
 
+import dev.deftu.omnicore.api.client.OmniClient;
+import dev.deftu.omnicore.api.client.player.OmniClientPlayer;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.renderer.EntityRenderer;
 import net.minecraft.client.settings.GameSettings;
 import net.minecraft.item.ItemMap;
@@ -33,13 +36,14 @@ public class EntityRendererMixin {
 
     @Unique
     private boolean shaketweaks$hasMap() {
-        if (!ShakeTweaks.config.mapBobbing || mc.thePlayer == null) return false;
+        EntityPlayerSP player = OmniClient.getPlayer();
+        if (!ShakeTweaks.config.mapBobbing || player == null) return false;
         //#if MC==10809
-        ItemStack heldItem = mc.thePlayer.getHeldItem();
+        ItemStack heldItem = player.getHeldItem();
         return heldItem != null && heldItem.getItem() instanceof ItemMap;
         //#else
-        //$$ ItemStack mainHandItem = mc.player.getHeldItemMainhand();
-        //$$ ItemStack offHandItem = mc.player.getHeldItemOffhand();
+        //$$ ItemStack mainHandItem = player.getHeldItemMainhand();
+        //$$ ItemStack offHandItem = player.getHeldItemOffhand();
         //$$ return (mainHandItem != null && mainHandItem.getItem() instanceof ItemMap) || (offHandItem != null && offHandItem.getItem() instanceof ItemMap);
         //#endif
     }
